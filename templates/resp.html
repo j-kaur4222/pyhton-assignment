@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Add your CSS styles here */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
-            margin: 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .container {
@@ -19,17 +24,48 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        /* Style for temperature */
+        .temperature {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e44d26; /* Red-orange color */
+        }
+
+        /* Style for weather description */
+        .weather-description {
+            text-transform: capitalize; /* Capitalize the first letter of each word */
+        }
+
+        /* Style for wind speed */
+        .wind-speed {
+            font-style: italic;
+        }
     </style>
     <title>Weather Data</title>
 </head>
 <body>
+    <!-- Bootstrap container class -->
     <div class="container">
-        <h1>{{ data['name'] }} Weather</h1>
-        <p>Temperature: {{ data['main']['temp'] }}°C</p>
-        <p>Weather: {{ data['weather'][0]['description'] }}</p>
-        <p>Wind Speed: {{ data['wind']['speed'] }} m/s</p>
+        <h1 class="temperature">{{ data['name'] }} Weather</h1>
+        <p class="temperature">Temperature: {{ data['main']['temp'] }}°C</p>
+        <p class="weather-description">Weather: {{ data['weather'][0]['description'] }}</p>
+        <p class="wind-speed">Wind Speed: {{ data['wind']['speed'] }} m/s</p>
     </div>
+
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
